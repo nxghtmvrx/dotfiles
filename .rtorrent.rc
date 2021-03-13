@@ -1,0 +1,21 @@
+directory.default.set = ~/downloads/torrent
+session.path.set = ~/.config/rtorrent
+schedule2 = watch_directory,5,5,load.start=~/downloads/*.torrent
+dht.mode.set = on
+dht.port.set = 6881
+network.http.max_open.set = 50
+network.max_open_files.set = 15
+network.max_open_sockets.set = 300
+protocol.encryption.set = allow_incoming,try_outgoing,enable_retry
+throttle.max_uploads.set = 100
+throttle.max_uploads.global.set = 250
+trackers.numwant.set = 80
+# SWAP PEERS AND SEEDS IN CASE IT DOES NOT WORK
+throttle.max_peers.seed.set = 80
+throttle.max_peers.normal.set = 0
+pieces.memory.max.set = 1800M
+network.xmlrpc.size_limit.set = 4M
+network.port_random.set = yes
+network.http.dns_cache_timeout.set = 25
+
+encoding.add = utf8

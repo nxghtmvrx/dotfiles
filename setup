@@ -1,0 +1,7 @@
+#!/bin/sh
+mkdir .config/rtorrent
+mkdir .config/newsboat
+mv .rtorrent.rc .config/rtorrent/
+mv .newsboat .config/newsboat/
+ln -s .config/rtorrent/rtorrentrc .rtorrent.rc
+ln -s .config/newsboat .newsboat

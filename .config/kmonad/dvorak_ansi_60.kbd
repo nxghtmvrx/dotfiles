@@ -1,0 +1,38 @@
+(defcfg
+input  (device-file "/dev/input/by-id/usb-E-Signal_USB_Gaming_Keyboard-event-kbd")
+output (uinput-sink "KMonad Cerberus" "/bin/sleep 1")
+cmp-seq ralt
+fallthrough true
+allow-cmd false
+)
+
+(defalias
+  mo0  (layer-toggle l0)
+  mo1  (layer-toggle l1)
+  gres (tap-hold 125 esc grv)
+  spsh (tap-hold 125 spc lsft)
+)
+
+(defsrc
+  grv  1    2    3    4    5    6    7    8    9    0    [    ]    bspc
+  tab  '    ,    .    p    y    f    g    c    r    l    /    =    \
+  caps a    o    e    u    i    d    h    t    n    s    -    ret
+  lsft ;    q    j    k    x    b    m    w    v    z    rsft
+  lctl lmet lalt           spc            ralt rmet cmp  rctl
+)
+
+(deflayer l0
+  @gres 1     2    3    4    5    6    7    8    9    0    [    ]    esc
+  tab   '     ,    .    p    y    f    g    c    r    l    /    =    \
+  bspc  a     o    e    u    i    d    h    t    n    s    -    ret
+  ret   ;     q    j    k    x    b    m    w    v    z    rctl
+  lctl  lmet  lalt           @spsh          ralt rmet cmp  @mo1
+)
+
+(deflayer l1
+  grv  1    2    3    4    5    6    7    8    9    0    -    =    bspc
+  tab  q    w    e    r    t    y    u    i    o    p    [    ]    \
+  caps a    s    d    f    g    h    j    k    l    ;    '    ret
+  lsft z    x    c    v    b    n    m    ,    .    /    rsft
+  lctl lmet lalt           spc            ralt rmet cmp  @mo0
+)

@@ -1,0 +1,5 @@
+auto-reload yes
+highlight all "---.*---" yellow
+highlight feedlist ".*(0/0))" black
+
+macro d set browser "ffyt"
