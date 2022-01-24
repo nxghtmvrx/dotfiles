@@ -1,7 +1,17 @@
 #!/bin/sh
+#Before you use it comment unneeded.
+mv .profile .config/
+ln -s .config/.profile .profile
+
 mkdir .config/rtorrent
-mkdir .config/newsboat
 mv .rtorrent.rc .config/rtorrent/
-mv .newsboat .config/newsboat/
 ln -s .config/rtorrent/rtorrentrc .rtorrent.rc
+
+mkdir .config/newsboat
+mv .newsboat .config/newsboat/
 ln -s .config/newsboat .newsboat
+
+#/dev/null
+ln -s /dev/null .lesshst
+ln -s /dev/null .wget-hsts
+ln -s /dev/null .links
